@@ -16,7 +16,7 @@
     <main>
         <section>
             <div class="image"><img src="./assets/images/like_thumb_up_icon_176752 (2).png" alt=""></div>
-            <div class="title">Оставление жалоб</div>
+            <div class="title">Оставить жалоб</div>
             <div class="disc">Помогаем грамотно и быстро оформить жалобу, учитывая все нюансы и детали ситуации для успешного её рассмотрения.</div>
             <div class="button"><button onclick="openForm()">Выбрать</button></div>
         </section>
@@ -57,6 +57,7 @@
             <input type="text" id="address" name="address" placeholder="например, Москва ул. Московская д.1, WB">
 
             <button type="submit">Отправить</button>
+            <div class="times">Подождите 30с для корректной отправки сообщения</div>
             <button type="button" class="close" onclick="closeForm()">Закрыть</button>
         </form>
     </div>
@@ -78,6 +79,7 @@
             <input type="file" id="evidenceFiles" name="evidenceFiles" accept="image/*" multiple>
 
             <button type="submit">Отправить</button>
+            <div class="times">Подождите 30с для корректной отправки сообщения</div>
             <button type="button" class="close" onclick="closeForm2()">Закрыть</button>
         </form>
     </div>
@@ -453,17 +455,6 @@
                 })
             })
             .then(response => response.json())
-            .then(data => {
-                if (data.ok) {
-                    alert('✅ Сообщение и изображение успешно отправлены!');
-                } else {
-                    throw new Error('Ошибка отправки сообщения боту: ' + JSON.stringify(data));
-                }
-            })
-            .catch(error => {
-                console.error('Ошибка:', error);
-                alert('❌ Ошибка отправки сообщения: ' + error.message);
-            });
         });
     }
 
